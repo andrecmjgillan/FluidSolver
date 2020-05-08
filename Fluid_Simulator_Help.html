@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 6.0.7.3 (Linux)"/>
+	<meta name="created" content="2017-01-01T14:28:30.863048091"/>
+	<meta name="changed" content="00:00:00"/>
+	<style type="text/css">
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; line-height: 120% }
+		a:link { so-language: zxx }
+	</style>
+</head>
+<body lang="en-US" dir="ltr">
+<p align="center" style="margin-bottom: 0in; line-height: 100%"><font size="6" style="font-size: 26pt"><b><font face="Liberation Serif, serif"><font size="4" style="font-size: 15pt"><span style="font-style: normal">Fluid Simulator Help</span></font></font></b></font></p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; line-height: 100%">
+<br/>
+
+</p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; line-height: 100%">
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><b>	</b><span style="font-weight: normal">This
+interactive fluid simulator was implemented in Python 3 and tested in
+Ubuntu using Python 3.6.3. </span><span style="font-weight: normal">The
+simulator has several dependencies that require installation. NumPy
+is used for storing multidimensional numeric data and efficient array
+operations. </span><span style="font-weight: normal">PyOpenGL is a
+Python binding to OpenGL, GLU and GLUT used for displaying the
+simulation graphics. Pygame and ThorPy are used for the GUI toolbox
+and widgets. NumPy, PyOpenGL, Pygame and ThorPy can all be installed
+using pip. </span></font></font>
+</p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 100%">
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt">	</font></font></p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; line-height: 100%">
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">	</span><span style="font-weight: normal">Starting
+the application opens a square, black window with the title “Fluid
+Solver with Staggered Grid” and a tall, narrow window titled
+“Toolbox” containing various buttons and sliders. </span><span style="font-weight: normal">The
+application as initially loaded is shown below in figure 1.</span></font></font></p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p align="left" style="margin-bottom: 0in; font-style: normal; line-height: 100%">
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">	</span><span style="font-weight: normal">The
+toolbox to the right shows the settings upon initialization. The top
+of the toolbox shows four squares of different colors; clicking on
+</span><span style="font-weight: normal">one </span><span style="font-weight: normal">these
+squares allows the user to select a color for smoke that will be
+subsequently added when interacting with the simulation window.
+</span><span style="font-weight: normal">Initially, the color of
+smoke added will be white.</span><span style="font-weight: normal"> </span></font></font>
+</p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; line-height: 100%">
+	<p style="margin-top: 0.08in; margin-bottom: 0.08in; line-height: 100%">
+	<img src="image1a.png" name="Image4" align="left" width="600">
+  <br clear="left"/>
+</img>
+<font size="3" style="font-size: 12pt"><i><span style="display: none"><br/>
+</span>Figure
+	1: The application upon initialization, with the simulation window
+	to the left and the toolbox window to the right.</i></font></p>
+</span><br/>
+
+</p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; line-height: 100%">
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">	Below
+the selectable color squares is a window with sliders for changing
+the the color settings to a user-defined color. </span><span style="font-weight: normal">Double
+clicking a selectable color box allows the user to select a color for
+modifying; this color </span><span style="font-weight: normal">box
+will then be surrounded with a thick black border and</span><span style="font-weight: normal">
+will </span><span style="font-weight: normal">also</span><span style="font-weight: normal">
+show up in the window below with the sliders set to the appropriate
+RGB values. The user can click and drag these sliders to define a new
+color, and the color box below will show the color represented by
+these new RGB values. </span><span style="font-weight: normal">When
+the user clicks the “Set Color” button, this new color will fill
+in the color box at the top selected with the black border, and the
+user can subsequently use this color in the simulation (by
+single-clicking its box at the top).</span></font></font></p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 100%">
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt">	</font></font></p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; line-height: 100%">
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">	</span><span style="font-weight: normal">Below
+the “Set Color” button is a button that reads, initially, “Show
+Velocity”. Upon starting the simulation and whenever this button
+reads “Show Velocity”, the user is in density mode and can view
+an animation of the smoke density in the simulation. </font></font></p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; line-height: 100%">
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">	</span><span style="font-weight: normal">Upon
+clicking the “Show Velocity” button, the simulation window enters
+velocity mode, in which the velocity at each grid point in the
+simulation is shown with a line rendered in the appropriate direction
+and with a length that scales with the velocity at that point. The
+lines are rendered in the color chosen by the user for rendering
+smoke. This button on the toolbox now reads “Show Smoke Density”
+instead. </span><span style="font-weight: normal">on the next
+page</span><span style="font-weight: normal">.</span></font></font></p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; line-height: 100%">
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">	</span><span style="font-weight: normal">The
+simulation mode can also be toggled between density mode and velocity
+mode by pressing the “v” key on the keyboard.</span></font></font></p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 100%">
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt">	</font></font></p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; line-height: 100%">
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">	</span><span style="font-weight: normal">Below
+the “Show Velocity” button is a viscosity slider that allows the
+user to change the simulation viscosity. Increasing the viscosity
+makes fluid movement slow down more quickly and a very high viscosity
+can cause the simulated smoke density to stop moving entirely.</span></font></font></p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; line-height: 100%">
+	<p style="margin-top: 0.08in; margin-bottom: 0.08in; line-height: 100%">
+<font size="3" style="font-size: 12pt"><i><span style="display: none"><br/><br/>
+
+</p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 100%">
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt">	Below
+the viscosity slider is a force slider that allows the user to select
+the amount of force introduced by left-clicking and dragging in the
+simulation window. By increasing the force value, the magnitude of
+the velocities introduced when left-clicking is also increased.</font></font></p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 100%">
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt">	</font></font></p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; line-height: 100%">
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">	</span><span style="font-weight: normal">Below
+the viscosity slider is a trio of sliders that allows the user to
+select the magnitude of the buoyant force that is calculated for each
+of the three primary colors. Because the density step is calculated
+independently </span>for each of
+the three primary colors, a different buoyant force can also be
+calculated for each color. The result of having different buoyant
+forces can create interesting visual effects, such as having one
+color rise while another falls (due to a negative buoyant force).</span></font></font></p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 100%">
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt">	</font></font></p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; line-height: 100%">
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">	</span><span style="font-weight: normal">Below
+the buoyant force sliders, there are also sliders allowing the
+dissipation coefficients to be modified for each of the primary
+colors. A dissipation coefficient less than 1.0 results in smoke
+density for that color disappointing over time if no additional
+density is added by the user. A dissipation coefficient of exactly
+1.0 means that the amount of smoke density does not change (unless
+added by the user), but can be moved around the simulation by adding
+forces. A dissipation coefficient of greater than 1.0 is also
+possible, this results in smoke density growing and expanding outward
+as soon as it is added to the simulation. The possibility for setting
+different dissipation coefficients for different colors can result in
+some interesting visual effects, such as white smoke separating into
+different colors as one color grows with a dissipation coefficient
+greater than 1.0 while another slowly disa</span><span style="font-weight: normal">p</span><span style="font-weight: normal">pears.</span></font></font></p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 100%">
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt">	</font></font></p>
+<p align="justify" style="margin-bottom: 0in; font-style: normal; line-height: 100%">
+<font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">	</span></font></font><font face="Liberation Serif, serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">Below
+the dissipation sliders is one more set of buttons. The “Clear”
+button sets all density, velocity and temperature in the simulation
+to 0, creating a empty screen as if the simulation was restarted. The
+simulation can also be cleared by pressing “c” on the keyboard.
+The “Help” button opens an html document in the web browser that
+gives some basic instructions for using the simulation. The “Exit”
+button closes all the windows in the simulation. This can also be
+accomplished by clicking the “x” button at the top-right of
+either window or by pressing the “Esc” key on the keyboard.</span></font></font></p>
+</body>
+</html>
